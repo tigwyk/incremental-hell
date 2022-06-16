@@ -6,7 +6,7 @@
 
 <script>
 import IgtFeature from "@/components/util/igt-feature";
-import {IgtSettings} from "incremental-game-template";
+import {Settings} from "@/engine/features/settings/Settings";
 import {App} from "@/App";
 
 export default {
@@ -14,7 +14,7 @@ export default {
   components: {IgtFeature},
   props: {
     settingsFeature: {
-      type: IgtSettings,
+      type: Settings,
       required: true,
     },
   },

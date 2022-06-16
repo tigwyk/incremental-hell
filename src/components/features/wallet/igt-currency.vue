@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {Currency} from "incremental-game-template";
+import {Currency} from "@/engine/features/wallet/Currency";
 
 export default {
   name: "igt-currency",

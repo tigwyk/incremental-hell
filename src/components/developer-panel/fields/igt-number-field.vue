@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {NumberField} from "incremental-game-template";
+import {NumberField} from "@/engine/developer-panel/fields/NumberField";
 
 export default {
   name: "igt-number-field",

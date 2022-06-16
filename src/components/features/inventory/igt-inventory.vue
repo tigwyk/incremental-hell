@@ -27,7 +27,7 @@
 import IgtFeature from "@/components/util/igt-feature";
 import IgtInventorySlot from "@/components/features/inventory/igt-inventory-slot";
 import IgtInventorySlotHighlight from "@/components/features/inventory/igt-inventory-slot-highlight";
-import {IgtInventory} from "incremental-game-template";
+import {Inventory} from "@/engine/features/inventory/Inventory";
 
 export default {
   name: "igt-inventory",
@@ -38,7 +38,7 @@ export default {
   },
   props: {
     inventoryFeature: {
-      type: IgtInventory,
+      type: Inventory,
       required: true,
     },
   },

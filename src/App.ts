@@ -1,10 +1,18 @@
-import {MyGame} from "./my-game/MyGame";
-import {IgtSettings} from "incremental-game-template";
+import {Game} from "@/engine/Game";
+import {Wallet} from "@/engine/features/wallet/Wallet";
+import {CurrencyType} from "@/engine/features/wallet/CurrencyType";
+import {Settings} from "@/engine/features/settings/Settings";
+import { Statistics } from "@/engine/features/statistics/Statistics";
+import { Achievements } from "@/engine/features/achievements/Achievements";
+import {Inventory} from "@/engine/features/inventory/Inventory";
+import { ItemList } from "@/engine/features/items/ItemList";
+import { Scrap } from "@/engine/features/scrap/Scrap";
+import { TimeLine } from "@/engine/features/timeline/TimeLine";
 
 export class App {
     static inProduction: boolean = (process.env.NODE_ENV === "production");
 
-    static game: MyGame;
+    static game: Game;
 
     static start(): void {
         this.game = this.getDefaultGame();
@@ -13,12 +21,23 @@ export class App {
         this.game.start();
     }
 
-    public static getDefaultGame(): MyGame {
-        return new MyGame(
+    public static getDefaultGame(): Game {
+        const game = new Game(
             {
-                settings: new IgtSettings(),
-                // Add your own features here.
+                settings: new Settings(),
+                wallet: new Wallet([
+                    CurrencyType.Money,
+                    CurrencyType.Diamond,
+                    CurrencyType.Scrap,
+                ]),
+                statistics: new Statistics(),
+                achievements: new Achievements(),
+                inventory: new Inventory(),
+                itemList: new ItemList(),
+                scrap: new Scrap(),
+                timeLine: new TimeLine(),
             }
         );
+        return game;
     }
 }
