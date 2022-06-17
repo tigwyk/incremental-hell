@@ -3,24 +3,6 @@
     <p>by Tigwyk</p>
     <p>Made with the Incremental Game Template</p>
     <div class="flex flex-row space-x-4 items-center">
-      <span>
-        <a href="https://discord.gg/AvNpq6Ng6S" target="_blank">
-          <img class="w-8 h-8" :src="require('@/assets/socials/discord.png')">
-        </a>
-      </span>
-      <span>
-        <a href="https://github.com/123ishaTest/incremental-game-template" target="_blank">
-          <img class="w-8 h-8" :src="require('@/assets/socials/github.png')">
-        </a>
-      </span>
-      <span>
-        <a href="https://123ishatest.github.io/incremental-game-template-website/" target="_blank">
-          <img class="w-8 h-8" :src="require('@/assets/socials/docusaurus.svg')">
-        </a>
-      </span>
-      <span>
-            <button class="btn btn-red" @click="resetSave">Reset Save</button>
-      </span>
     </div>
 
   </div>
@@ -28,7 +10,7 @@
 
 <script>
 import {App} from "@/App.ts"
-import {GameState} from "incremental-game-template";
+import {GameState} from "@/engine/GameState";
 
 export default {
   name: "ih-footer",

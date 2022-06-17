@@ -1,7 +1,7 @@
 <template>
-  <!-- <div :class="{'dark': darkMode}"> -->
+  <div :class="{'dark': darkMode}">
     <div class="container">
-      <!-- <igt-notifications></igt-notifications> -->
+      <igt-notifications></igt-notifications>
       <!-- <ih-header></ih-header> -->
       <time-line></time-line>
       <div class="column">
@@ -11,7 +11,7 @@
       </div>
       <!-- <ih-footer></ih-footer> -->
     </div>
-  <!-- </div> -->
+  </div>
 
 </template>
 
@@ -25,7 +25,7 @@ import TimeLine from "@/components/features/TimeLine"
 
 export default {
   components: {
-    // IgtNotifications,
+    IgtNotifications,
     // IhHeader,
     // IhFooter,
     TimeLine,
