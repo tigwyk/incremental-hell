@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row">
     <div class="align-middle m-2">{{ field.displayLabel }} - {{ field.value }}</div>
-    <input type="range" class="input-range" v-model.number="field.value"/>
+    <input type="range" class="input-range" :value="value" @input="$emit('input', $event.target.value)"/>
   </div>
 </template>
 

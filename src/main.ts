@@ -6,8 +6,8 @@ import Notifications from "vt-notifications";
 
 import './VueFilters';
 
-// import "./index.css";
-import "./index.scss";
+import "./index.css";
+// import "./index.scss";
 
 Vue.config.productionTip = false
 
