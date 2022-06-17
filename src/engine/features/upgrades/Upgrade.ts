@@ -3,13 +3,14 @@ import {Currency} from "@/engine/features/wallet/Currency";
 import {App} from "@/App";
 import {UpgradeSaveData} from "@/engine/features/upgrades/UpgradeSaveData";
 import {UpgradeType} from "@/engine/features/upgrades/UpgradeType";
+import { random } from "lodash-es";
 
 /**
  * Generic upgrade class
  */
 
 export abstract class Upgrade implements Saveable {
-    id: string;
+    id: string = String(Math.random());
     type: UpgradeType;
     displayName: string;
     maxLevel: number;
@@ -27,6 +28,7 @@ export abstract class Upgrade implements Saveable {
         this.maxLevel = maxLevel;
         this.level = 0;
         this.increasing = increasing;
+
     }
 
     abstract getCost(): Currency;
