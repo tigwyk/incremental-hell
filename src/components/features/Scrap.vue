@@ -1,6 +1,7 @@
 <template>
   <div class="container" v-if="canAccess">
-    <h3 style="text-align: center">{{ scrapAmount | twoDigits }} Scrap</h3>
+    <!-- <h3 style="text-align: center">{{ scrapAmount | twoDigits }} Scrap</h3> -->
+    <h3 style="text-align: center">{{ scrapAmount }} Scrap</h3>
     <div class="action-list">
       <scrap-action v-for="action in availableActions" :key="action.description" :action="action">
       </scrap-action>
