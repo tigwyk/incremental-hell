@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'dark': darkMode}">
+  <!-- <div :class="{'dark': darkMode}"> -->
     <div class="container">
       <igt-notifications></igt-notifications>
       <!-- <ih-header></ih-header> -->
@@ -11,7 +11,7 @@
       </div>
       <!-- <ih-footer></ih-footer> -->
     </div>
-  </div>
+  <!-- </div> -->
 
 </template>
 
