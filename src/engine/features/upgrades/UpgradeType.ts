@@ -4,4 +4,9 @@ export enum UpgradeType {
     ScrapValue,
     ScrapAutomationSpeed,
     ScrapAutomationACriticalChance,
+    GasolineMachine,
+    OilValue,
+    GasolineMachineSpeed,
+    GasolineConversionValue,
+    UnlockOilSpeedup,
 }

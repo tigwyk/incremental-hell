@@ -40,6 +40,15 @@ export class TimeLine extends Feature {
         if (App.game.features.wallet.getAmount(CurrencyType.Scrap) > 0) {
             this.canAccessScrap = true;
         }
+        if (App.game.features.wallet.getAmount(CurrencyType.Gasoline) > 0) {
+            this.canAccessGasoline = true;
+        }
+        // if (App.game.features.wallet.getAmount(CurrencyType.Lightning) > 0) {
+        //     this.canAccessLightning = true;
+        // }
+        // if (App.game.features.wallet.getAmount(CurrencyType.Plutonium) > 0) {
+        //     this.canAccessPlutonium = true;
+        // }
     }
 
     timeTravel() {

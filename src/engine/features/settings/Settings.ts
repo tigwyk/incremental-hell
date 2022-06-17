@@ -21,7 +21,8 @@ export class Settings extends Feature {
     }
 
     initialize() {
-        this.add(new BooleanSetting(SettingId.ShowSaveMessage, "Show save message", true))
+        this.add(new BooleanSetting(SettingId.ShowSaveMessage, "Show save message", true));
+        this.add(new BooleanSetting(SettingId.AutoConvertOil, 'Automate', false));
     }
 
     setSetting<T>(id: SettingId, value: T) {

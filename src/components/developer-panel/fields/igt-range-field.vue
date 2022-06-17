@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-row">
     <div class="align-middle m-2">{{ field.displayLabel }} - {{ field.value }}</div>
-    <input type="range" class="input-range" :value="value" @input="$emit('input', $event.target.value)"/>
+    <input type="range" class="input-range" v-model.number="field.value"/>
   </div>
 </template>
 
 <script>
-import {RangeField} from "@/engine/developer-panel/fields/RangeField";
+import {RangeField} from "@/ig-template/developer-panel/fields/RangeField";
 
 export default {
   name: "igt-range-field",
@@ -17,6 +17,11 @@ export default {
       required: true,
     }
   },
+  // data: function() {
+  //   return {
+  //     mutableField: JSON.parse(this.field);
+  //   }
+  // }
 
 }
 </script>

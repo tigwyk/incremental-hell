@@ -4,9 +4,14 @@
   <igt-sidebar title="Incremental Hell">
 
       <igt-sidebar-category name="Features"></igt-sidebar-category>
-      <igt-tab name="Scrap" :selected="true">
-          <!-- <time-line></time-line> -->
-              <scrap></scrap>
+      <igt-tab name="Timeline" :selected="true">
+          <time-line></time-line>
+      </igt-tab>
+      <igt-tab name="Scrap">
+              <scrap-component></scrap-component>
+      </igt-tab>
+      <igt-tab name="Gasoline">
+        <gasoline-component></gasoline-component>
       </igt-tab>
       <igt-tab name="Settings">
         <igt-settings :settings-feature="game.features.settings"></igt-settings>
@@ -40,8 +45,9 @@ import IgtDeveloperPanel from "@/components/developer-panel/igt-developer-panel"
 import IgtSidebarCategory from "@/components/util/sidebar/igt-sidebar-category";
 import IgtSidebarExternalLink from "@/components/util/sidebar/igt-sidebar-external-link";
 import IgtSettings from "@/components/features/settings/igt-settings";
-import Scrap from "@/components/features/Scrap";
-// import TimeLine from "@/components/features/TimeLine"
+import ScrapComponent from "@/components/features/Scrap";
+import TimeLine from "@/components/features/TimeLine";
+import GasolineComponent from "@/components/features/Gasoline";
 
 
 export default {
@@ -53,8 +59,9 @@ export default {
     IgtNotifications,
     IgtTab,
     IgtSidebar,
-    // TimeLine,
-    Scrap,
+    TimeLine,
+    ScrapComponent,
+    GasolineComponent,
   },
   data() {
     return {

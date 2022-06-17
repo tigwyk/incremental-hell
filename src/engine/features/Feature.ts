@@ -62,6 +62,26 @@ export abstract class Feature implements Saveable {
         return 1;
     }
 
+    getScrapMultiplier(): number {
+        return 1;
+    }
+
+    getOilMultiplier(): number {
+        return 1;
+    }
+
+    getGasolineMultiplier(): number {
+        return 1;
+    }
+
+    getLightningMultiplier(): number {
+        return 1;
+    }
+
+    getPlutoniumMultiplier(): number {
+        return 1;
+    }
+
     /**
      * Gets called every Game.TICK_DURATION
      * @param delta time since last update

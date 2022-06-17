@@ -37,6 +37,9 @@ export class Wallet extends Feature {
         this._currencies[CurrencyType.Bronze] = 0;
         this._currencies[CurrencyType.Silver] = 0;
         this._currencies[CurrencyType.Gold] = 0;
+        this._currencies[CurrencyType.Gasoline] = 0;
+        this._currencies[CurrencyType.Oil] = 0;
+        this._currencies[CurrencyType.Scrap] = 0;
     }
 
     public getAmount(type: CurrencyType): number {
@@ -101,6 +104,8 @@ export class Wallet extends Feature {
         this._currencies[CurrencyType.Scrap] = 0;
         this._currencies[CurrencyType.Salt] = 0;
         this._currencies[CurrencyType.Diamond] = 0;
+        this._currencies[CurrencyType.Gasoline] = 0;
+        this._currencies[CurrencyType.Oil] = 0;
     }
 
     public loseMultipleCurrencies(currencies: Currency[]) {
@@ -156,6 +161,9 @@ export class Wallet extends Feature {
     public save(): WalletSaveData {
         return {
             money: this._currencies[CurrencyType.Money],
+            scrap: this._currencies[CurrencyType.Scrap],
+            gasoline: this._currencies[CurrencyType.Gasoline],
+            oil: this._currencies[CurrencyType.Oil],
         }
     }
 
@@ -211,9 +219,19 @@ export class Wallet extends Feature {
         return this._currencies.Scrap;
     }
 
+    public get gasoline(): number {
+        return this._currencies.Gasoline;
+    }
+
+    public get oil(): number {
+        return this._currencies.Oil;
+    }
+
     getDeveloperPanelFields(): AbstractField[] {
         return [
             new NumberField('money', 'Money'),
+            new NumberField('scrap', 'Scrap'),
+            new NumberField('gasoline', 'Gasoline'),
             new FunctionField(() => {
                 this.money = 10
             }, 'Set money to 10').setCssClass('btn-blue'),
