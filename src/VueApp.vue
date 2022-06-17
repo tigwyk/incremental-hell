@@ -4,7 +4,7 @@
   <igt-sidebar title="Landlord Game">
 
       <igt-sidebar-category name="Features"></igt-sidebar-category>
-      <igt-tab name="Work" :selected="true">
+      <igt-tab name="Scrap" :selected="true">
           <!-- <time-line></time-line> -->
               <scrap></scrap>
       </igt-tab>
