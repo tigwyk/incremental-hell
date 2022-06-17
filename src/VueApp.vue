@@ -1,7 +1,7 @@
 <template>
   <div :class="{'dark': darkMode}">
   <igt-notifications></igt-notifications>
-  <igt-sidebar title="Landlord Game">
+  <igt-sidebar title="Incremental Hell">
 
       <igt-sidebar-category name="Features"></igt-sidebar-category>
       <igt-tab name="Scrap" :selected="true">
