@@ -7,7 +7,7 @@
     </div>
     <br>
     <div class="upgrade-list">
-      <upgrade v-for="upgrade in upgrades" :key="upgrade.id" :upgrade="upgrade"></upgrade>
+      <upgrade-component v-for="upgrade in upgrades" :key="upgrade.id" :upgrade="upgrade"></upgrade-component>
     </div>
 
   </div>
@@ -15,13 +15,13 @@
 
 <script>
 import {App} from "@/App";
-import Upgrade from "@/components/Upgrade";
+import UpgradeComponent from "@/components/Upgrade";
 import ScrapAction from "@/components/ScrapAction";
 
 export default {
 
-  name: "Scrap",
-  components: {ScrapAction, Upgrade},
+  name: "ScrapComponent",
+  components: {ScrapAction, UpgradeComponent},
   data() {
     return {
       statistic: App.game.features.statistics,

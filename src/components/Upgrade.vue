@@ -14,13 +14,13 @@
 
 <script>
 import {Upgrade} from "@/engine/features/upgrades/Upgrade";
-import Currency from "@/components/Currency.vue";
+import CurrencyComponent from "@/components/Currency.vue";
 import {App} from "@/App";
 
 export default {
-  name: "Upgrade",
+  name: "UpgradeComponent",
   components: {
-    'currency': Currency
+    'currency': CurrencyComponent
   },
   props: {
     upgrade: {
