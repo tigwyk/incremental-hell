@@ -4,7 +4,7 @@
     <igt-sidebar title="Incremental Hell">
 
       <igt-sidebar-category name="Features"></igt-sidebar-category>
-      <igt-tab name="Timeline">
+      <igt-tab name="Time Travel">
         <time-line></time-line>
       </igt-tab>
       <igt-tab name="Gameplay">
