@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {App} from "src/App.ts";
+import {App} from "src/App";
 import BooleanSetting from "@/components/BooleanSetting.vue";
 
 export default {
@@ -15,7 +15,7 @@ export default {
   components: {BooleanSetting},
   data: function () {
     return {
-      settings: App.game.settings
+      settings: App.game.features.settings
     }
   },
 
