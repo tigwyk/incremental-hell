@@ -1,6 +1,5 @@
 <template>
   <div :class="{'dark': darkMode}">
-  <igt-notifications></igt-notifications>
   <igt-sidebar title="Incremental Hell">
 
       <igt-sidebar-category name="Features"></igt-sidebar-category>
@@ -38,7 +37,6 @@
 
 <script>
 import {App} from "@/App"
-import IgtNotifications from "@/components/util/igt-notifications";
 import IgtSidebar from "@/components/util/sidebar/igt-sidebar-layout";
 import IgtTab from "@/components/util/igt-tab";
 import IgtDeveloperPanel from "@/components/developer-panel/igt-developer-panel";
@@ -49,14 +47,12 @@ import ScrapComponent from "@/components/features/Scrap";
 import TimeLine from "@/components/features/TimeLine";
 import GasolineComponent from "@/components/features/Gasoline";
 
-
 export default {
   components: {
     IgtSettings,
     IgtSidebarExternalLink,
     IgtSidebarCategory,
     IgtDeveloperPanel,
-    IgtNotifications,
     IgtTab,
     IgtSidebar,
     TimeLine,
