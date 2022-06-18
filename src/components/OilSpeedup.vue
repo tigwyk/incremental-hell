@@ -10,7 +10,7 @@
 
 <script>
 import {OilSpeedup} from "@/engine/features/gasoline/OilSpeedup";
-import {App} from "@/App.ts";
+import {App} from "@/App";
 
 export default {
   name: "OilSpeedup",
@@ -30,12 +30,12 @@ export default {
   },
   methods: {
     select(index) {
-      App.game.gasoline.selectedOilSpeedup = index;
+      App.game.features.gasoline.selectedOilSpeedup = index;
     }
   },
   computed: {
     isSelected() {
-      return this.index === App.game.gasoline.selectedOilSpeedup;
+      return this.index === App.game.features.gasoline.selectedOilSpeedup;
     }
   }
 }
