@@ -1,12 +1,12 @@
 <template>
   <div class="container" v-if="canAccess">
 
-    <h3 style="text-align: center">{{ oilAmount }} Oil, {{ gasolineAmount }} Gasoline</h3>
+    <h3 style="text-align: center">{{ oilAmount | twoDigits }} Oil, {{ gasolineAmount | twoDigits }} Gasoline</h3>
 
     <div class="centered-row">
       <div v-if="canConvert" style="">
-        <button class="btn btn-success" @click="gasoline.convertOil()">Convert {{ conversionCost }} Oil to
-          {{ conversionGasolineGain }} Gasoline<br>
+        <button class="btn btn-success" @click="gasoline.convertOil()">Convert {{ conversionCost | twoDigits }} Oil to
+          {{ conversionGasolineGain | twoDigits}} Gasoline<br>
           <boolean-setting :setting="autoConvertOilSetting" :show-description="true"></boolean-setting>
         </button>
       </div>
@@ -23,7 +23,7 @@
     <br>
 
     <div class="oil-upgrades-list">
-      <upgrade-component v-for="upgrade in oilUpgrades" :key="upgrade.identifier" :upgrade="upgrade">
+      <upgrade-component v-for="upgrade in oilUpgrades" :key="upgrade.id" :upgrade="upgrade">
       </upgrade-component>
     </div>
 
@@ -71,7 +71,7 @@ export default {
       return this.gasoline.oilUpgrades.list;
     },
     availableActions() {
-      return this.gasoline.actions.filter(action => action.requirements.isCompleted());
+      return this.gasoline.actions.filter(action => action.requirements.isCompleted);
     },
     oilSpeedupCount() {
       return 1 + this.gasoline.oilUpgrades.getUpgrade("gasoline-unlock-oil-speedup").level;
@@ -92,10 +92,10 @@ export default {
       return this.gasoline.conversionGasolineGain();
     },
     oilAmount() {
-      return this.wallet.currencies[CurrencyType[CurrencyType.Oil]];
+      return this.wallet.oil;
     },
     gasolineAmount() {
-      return this.wallet.currencies[CurrencyType[CurrencyType.Gasoline]];
+      return this.wallet.gasoline;
     }
   }
 }

@@ -22,7 +22,9 @@ export class Settings extends Feature {
 
     initialize() {
         this.add(new BooleanSetting(SettingId.ShowSaveMessage, "Show save message", true));
-        this.add(new BooleanSetting(SettingId.AutoConvertOil, "Automate", false));
+        this.add(new BooleanSetting(SettingId.AutoConvertOil, "Automatically convert oil", false));
+        this.add(new BooleanSetting(SettingId.AutoConvertBolts, "Automatically convert bolts", false));
+        this.add(new BooleanSetting(SettingId.AutoStrikeBolts, "Automatically strike bolts", false));
     }
 
     setSetting<T>(id: SettingId, value: T) {

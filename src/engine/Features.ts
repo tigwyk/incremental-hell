@@ -5,6 +5,8 @@ import {Achievements} from "@/engine/features/achievements/Achievements";
 import { Scrap } from "@/engine/features/scrap/Scrap";
 import { TimeLine } from "@/engine/features/timeline/TimeLine";
 import {Gasoline} from "@/engine/features/gasoline/Gasoline";
+import { Lightning } from "@/engine/features/lightning/Lightning";
+import { Plutonium } from "@/engine/features/plutonium/Plutonium";
 
 export interface Features {
     wallet: Wallet;
@@ -14,4 +16,6 @@ export interface Features {
     scrap: Scrap;
     timeLine: TimeLine;
     gasoline: Gasoline;
+    lightning: Lightning;
+    plutonium: Plutonium;
 }

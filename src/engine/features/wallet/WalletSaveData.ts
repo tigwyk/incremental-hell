@@ -5,4 +5,6 @@ export interface WalletSaveData extends SaveData {
     scrap: number;
     gasoline: number;
     oil: number;
+    lightning: number;
+    plutonium: number;
 }

@@ -1,18 +1,19 @@
-import { createApp } from 'vue' // import a function
+import Vue from 'vue'
+// import { createApp } from 'vue'
 import VueApp from './VueApp.vue'
 import {App} from "./App";
-import { h } from 'vue'
+// import { h } from 'vue'
 
-// import Notifications from "vt-notifications";
+import Notifications from "vt-notifications";
 
-// import './VueFilters';
+import './VueFilters';
 
 import "./index.css";
 // import "./index.scss";
 
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
 
-// Vue.use(Notifications);
+Vue.use(Notifications);
 
 declare global {
     interface Window {
@@ -36,13 +37,13 @@ window.onload = function () {
 
     console.log("Launched");
 
-    // new Vue({
-    //     render: h => h(VueApp),
-    // }).$mount('#app')
-    const app = createApp({
-        render: () => h(VueApp),
-    })
-    app.mount('#app')
+    new Vue({
+        render: h => h(VueApp),
+    }).$mount('#app')
+    // const app = createApp({
+    //     render: () => h(VueApp),
+    // })
+    // app.mount('#app')
 
 };
 

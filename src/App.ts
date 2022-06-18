@@ -7,6 +7,8 @@ import { Achievements } from "@/engine/features/achievements/Achievements";
 import { Scrap } from "@/engine/features/scrap/Scrap";
 import { TimeLine } from "@/engine/features/timeline/TimeLine";
 import {Gasoline} from "@/engine/features/gasoline/Gasoline";
+import { Lightning } from "@/engine/features/lightning/Lightning";
+import { Plutonium } from "@/engine/features/plutonium/Plutonium";
 
 export class App {
     static inProduction: boolean = (process.env.NODE_ENV === "production");
@@ -28,12 +30,19 @@ export class App {
                     CurrencyType.Money,
                     CurrencyType.Diamond,
                     CurrencyType.Scrap,
+                    CurrencyType.Gasoline,
+                    CurrencyType.Oil,
+                    CurrencyType.Souls,
+                    CurrencyType.Plutonium,
+                    CurrencyType.Lightning,
                 ]),
                 statistics: new Statistics(),
                 achievements: new Achievements(),
                 scrap: new Scrap(),
                 timeLine: new TimeLine(),
                 gasoline: new Gasoline(),
+                lightning: new Lightning(),
+                plutonium: new Plutonium(),
             }
         );
         return game;

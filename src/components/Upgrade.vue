@@ -5,8 +5,8 @@
     <div v-else>
       <currency :currency="cost"></currency>
       <div v-if="upgrade.maxLevel !== 1">
-        Currently {{ upgrade.getBonus(upgrade.level) }}
-        ({{ upgrade.increasing ? '+' : '-' }}{{ Math.abs(upgrade.getUpgradeBonus()) }})
+        Currently {{ upgrade.getBonus(upgrade.level) | twoDigits }}
+        ({{ upgrade.increasing ? '+' : '-' }}{{ Math.abs(upgrade.getUpgradeBonus()) | twoDigits }})
       </div>
     </div>
   </button>
@@ -14,7 +14,7 @@
 
 <script>
 import {Upgrade} from "@/engine/features/upgrades/Upgrade";
-import CurrencyComponent from "@/components/Currency.vue";
+import CurrencyComponent from "@/components/Currency";
 import {App} from "@/App";
 
 export default {

@@ -4,13 +4,13 @@ import {StatisticId} from "@/engine/features/statistics/StatisticId";
 
 export class StatisticRequirement extends Requirement {
     id: StatisticId;
-    targetValue: number;
+    _targetValue: number;
 
 
     constructor(id: StatisticId, targetValue: number) {
         super();
         this.id = id;
-        this.targetValue = targetValue;
+        this._targetValue = targetValue;
     }
 
     lockedReason(): string {
@@ -22,7 +22,11 @@ export class StatisticRequirement extends Requirement {
     }
 
     getTargetValue(): number {
-        return this.targetValue;
+        return this._targetValue;
+    }
+
+    get targetValue(): number {
+        return this._targetValue;
     }
     
     get actualValue(): number {

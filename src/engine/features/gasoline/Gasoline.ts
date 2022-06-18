@@ -56,7 +56,6 @@ export class Gasoline extends Feature {
             ]
         )
 
-
         this.actions = [
             new GasolineAction(
                 1,

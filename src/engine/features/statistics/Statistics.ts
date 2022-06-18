@@ -24,11 +24,13 @@ export class Statistics extends Feature {
 
     initialize(features: Features): void {
         this.registerStatistic(new NumberStatistic(StatisticId.TotalMoneyGained, 'Total money'));
+
         this.registerStatistic(new NumberStatistic(StatisticId.TotalScrapGained, 'Total scrap'));
         this.registerStatistic(new NumberStatistic(StatisticId.TotalOilGained, 'Total oil'));
         this.registerStatistic(new NumberStatistic(StatisticId.TotalGasolineGained, 'Total gasoline'));
         this.registerStatistic(new NumberStatistic(StatisticId.TotalLightningGained, 'Total lightning'));
         this.registerStatistic(new NumberStatistic(StatisticId.TotalPlutoniumGained, 'Total plutonium'));
+
         this.registerStatistic(new NumberStatistic(StatisticId.TotalScrapGainedThisPrestige, 'Total scrap this prestige'));
         this.registerStatistic(new NumberStatistic(StatisticId.TotalOilGainedThisPrestige, 'Total oil this prestige'));
         this.registerStatistic(new NumberStatistic(StatisticId.TotalGasolineGainedThisPrestige, 'Total gasoline this prestige'));
@@ -51,17 +53,29 @@ export class Statistics extends Feature {
                 this.incrementNumberStatistic(StatisticId.TotalGasolineGained, currency.amount);
                 this.incrementNumberStatistic(StatisticId.TotalGasolineGainedThisPrestige, currency.amount);
             }
+            if (currency.type === CurrencyType.Lightning) {
+                this.incrementNumberStatistic(StatisticId.TotalLightningGained, currency.amount)
+                this.incrementNumberStatistic(StatisticId.TotalLightningGainedThisPrestige, currency.amount)
+            }
+            if (currency.type === CurrencyType.Plutonium) {
+                this.incrementNumberStatistic(StatisticId.TotalPlutoniumGained, currency.amount)
+                this.incrementNumberStatistic(StatisticId.TotalPlutoniumGainedThisPrestige, currency.amount)
+            }
         });
     }
 
     getCurrencyStatisticThisPrestige(type: CurrencyType): NumberStatistic {
         switch (type) {
-            case CurrencyType.Scrap: {
+            case CurrencyType.Scrap:
                 return this.getStatistic(StatisticId.TotalScrapGainedThisPrestige) as NumberStatistic;
-            }
-            default: {
-                return this.getStatistic(StatisticId.TotalScrapGainedThisPrestige) as NumberStatistic;
-            }
+            case CurrencyType.Oil:
+                return this.getStatistic(StatisticId.TotalOilGainedThisPrestige) as NumberStatistic;
+            case CurrencyType.Gasoline:
+                return this.getStatistic(StatisticId.TotalGasolineGainedThisPrestige) as NumberStatistic;
+            case CurrencyType.Lightning:
+                return this.getStatistic(StatisticId.TotalLightningGainedThisPrestige) as NumberStatistic;
+            case CurrencyType.Plutonium:
+                return this.getStatistic(StatisticId.TotalPlutoniumGainedThisPrestige) as NumberStatistic;
         }
     }
 
