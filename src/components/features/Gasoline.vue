@@ -1,7 +1,7 @@
 <template>
   <div class="container" v-if="canAccess">
 
-    <h3 style="text-align: center">{{ oilAmount | twoDigits }} Oil, {{ gasolineAmount | twoDigits }} Gasoline</h3>
+    <h3 style="text-align: center">{{ oilAmount }} Oil, {{ gasolineAmount }} Gasoline</h3>
 
     <div class="centered-row">
       <div v-if="canConvert" style="">
@@ -56,9 +56,9 @@ export default {
   components: {UpgradeComponent, OilSpeedup, BooleanSetting, GasolineAction},
   data() {
     return {
-      gasoline: App.game.gasoline,
-      autoConvertOilSetting: App.game.settings.getSetting(SettingId.AutoConvertOil),
-      wallet: App.game.wallet,
+      gasoline: App.game.features.gasoline,
+      autoConvertOilSetting: App.game.features.settings.getSetting(SettingId.AutoConvertOil),
+      wallet: App.game.features.wallet,
     }
   },
   methods: {},
