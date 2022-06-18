@@ -41,12 +41,11 @@
 </template>
 
 <script>
-import {App} from "@/App.ts";
+import {App} from "@/App";
 import UpgradeComponent from "@/components/Upgrade";
 import GasolineAction from "@/components/GasolineAction";
 import BooleanSetting from "@/components/BooleanSetting";
 import OilSpeedup from "@/components/OilSpeedup";
-import {SingleLevelUpgrade} from "@/engine/features/upgrades/SingleLevelUpgrade";
 import {CurrencyType} from "@/engine/features/wallet/CurrencyType";
 import {SettingId} from "@/engine/features/settings/SettingId";
 

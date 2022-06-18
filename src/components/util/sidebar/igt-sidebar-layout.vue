@@ -97,7 +97,8 @@ export default {
     },
   },
   created() {
-    this.tabs = this.$children;
+    this.tabs = this.$slots.default().filter((child) => child.type.name === "igt-tab");
+    console.log(this.tabs);
   },
   methods: {
     selectTab(selectedTab) {

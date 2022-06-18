@@ -26,7 +26,7 @@ export default {
 
   created() {
 
-    this.tabs = this.$children;
+    this.tabs = this.$slots.default().filter((child) => child.type.name === "igt-tab");
 
   },
   methods: {

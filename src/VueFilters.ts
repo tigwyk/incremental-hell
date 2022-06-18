@@ -1,13 +1,13 @@
 import Vue from 'vue'
 
-Vue.filter('numberFormat', function (value: number) {
+function numberFormat (value: number) {
     if (value == undefined) {
         return "";
     }
     return value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-})
+}
 
-Vue.filter('dateFormat', function (date: Date) {
+function dateFormat (date: Date) {
     if (date == undefined) {
         return "";
     }
@@ -23,17 +23,17 @@ Vue.filter('dateFormat', function (date: Date) {
 
     return `${day} ${month} ${year} ${hoursString}:${minutesString}`;
 
-})
+}
 
-Vue.filter('humanizeString', function (string: string) {
+function humanizeString (string: string) {
     if (string == undefined) {
         return "";
     }
     string = string.charAt(0).toUpperCase() + string.slice(1);
     string.replace("_", " ").replace("-", " ");
     return string;
-})
+}
 
-Vue.filter('twoDigits', function (value: number) {
+function twoDigits (value: number) {
     return value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-})
+}

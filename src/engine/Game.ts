@@ -8,8 +8,7 @@ import {DeveloperPanelTab} from "@/engine/developer-panel/DeveloperPanelTab";
 import {FunctionField} from "@/engine/developer-panel/fields/FunctionField";
 import {DisplayField} from "@/engine/developer-panel/fields/DisplayField";
 import {ChoiceField} from "@/engine/developer-panel/fields/ChoiceField";
-import {Currency} from "@/engine/features/wallet/Currency";
-import {ISignal, ISimpleEvent, SignalDispatcher, SimpleEventDispatcher} from "strongly-typed-events";
+import {ISignal, SignalDispatcher} from "strongly-typed-events";
 
 export class Game {
     private _tickInterval: number = -1;
@@ -175,7 +174,7 @@ export class Game {
         }
 
         this._lastUpdate = new Date().getTime() / 1000;
-        // this._tickInterval = setInterval(() => this.update(), this.TICK_DURATION * 1000);
+        this._tickInterval = Number(setInterval(() => this.update(), this.TICK_DURATION * 1000));
 
         this.state = GameState.Playing;
         console.debug("Game Resumed");

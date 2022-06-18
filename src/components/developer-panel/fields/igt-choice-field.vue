@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row">
     <div class="align-middle m-2">{{ field.displayLabel }}</div>
-    <select :value="value" @input="$emit('input', $event.target.value)">
+    <select v-model="fieldValue">
       <option :key="option.value" v-for="option in field.options" v-bind:value="option[1]">
         {{ option[0] }}
       </option>
@@ -21,6 +21,11 @@ export default {
       required: true,
     }
   },
+  data() {
+    return {
+      fieldValue: this.field.value
+    }
+  }
 
 }
 </script>
