@@ -23,17 +23,33 @@ export class Statistics extends Feature {
     }
 
     initialize(features: Features): void {
-        this.registerStatistic(new NumberStatistic(StatisticId.TotalMoneyGained, 'Total money'))
-        this.registerStatistic(new NumberStatistic(StatisticId.TotalScrapGained, 'Total scrap'))
-        this.registerStatistic(new NumberStatistic(StatisticId.TotalScrapGainedThisPrestige, 'Total scrap this prestige'))
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalMoneyGained, 'Total money'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalScrapGained, 'Total scrap'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalOilGained, 'Total oil'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalGasolineGained, 'Total gasoline'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalLightningGained, 'Total lightning'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalPlutoniumGained, 'Total plutonium'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalScrapGainedThisPrestige, 'Total scrap this prestige'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalOilGainedThisPrestige, 'Total oil this prestige'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalGasolineGainedThisPrestige, 'Total gasoline this prestige'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalLightningGainedThisPrestige, 'Total lightning this prestige'));
+        this.registerStatistic(new NumberStatistic(StatisticId.TotalPlutoniumGainedThisPrestige, 'Total plutonium this prestige'));
 
         features.wallet.onCurrencyGain.subscribe((currency: Currency) => {
             if (currency.type === CurrencyType.Money) {
                 this.incrementNumberStatistic(StatisticId.TotalMoneyGained, currency.amount);
             }
             if (currency.type === CurrencyType.Scrap) {
-                this.incrementNumberStatistic(StatisticId.TotalScrapGained, currency.amount)
-                this.incrementNumberStatistic(StatisticId.TotalScrapGainedThisPrestige, currency.amount)
+                this.incrementNumberStatistic(StatisticId.TotalScrapGained, currency.amount);
+                this.incrementNumberStatistic(StatisticId.TotalScrapGainedThisPrestige, currency.amount);
+            }
+            if (currency.type === CurrencyType.Oil) {
+                this.incrementNumberStatistic(StatisticId.TotalOilGained, currency.amount);
+                this.incrementNumberStatistic(StatisticId.TotalOilGainedThisPrestige, currency.amount);
+            }
+            if (currency.type === CurrencyType.Gasoline) {
+                this.incrementNumberStatistic(StatisticId.TotalGasolineGained, currency.amount);
+                this.incrementNumberStatistic(StatisticId.TotalGasolineGainedThisPrestige, currency.amount);
             }
         });
     }
