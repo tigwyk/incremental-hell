@@ -49,7 +49,7 @@
           </div>
           <div class="row">
             <div class="legend-tile tile" style="cursor: auto" :style="{'background-color': lightningReward.Oil}"></div>
-            <h4>Oil. You have {{ oilAmount }}</h4>
+            <h4>Oil. You have {{ oilAmount | twoDigits }}</h4>
           </div>
         </div>
 
