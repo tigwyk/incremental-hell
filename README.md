@@ -1,6 +1,8 @@
 # igt-vue
 > A template Vue project to quickly create incremental games with the igt-library.
 
+![build status](https://app.travis-ci.com/tigwyk/incremental-hell.svg?branch=master&status=failed)
+
 [Please visit the actual Docs here](https://123ishatest.github.io/igt-docs)
 
 ## Requirements
