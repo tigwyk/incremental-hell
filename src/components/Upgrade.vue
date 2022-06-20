@@ -14,7 +14,7 @@
 
 <script>
 import {Upgrade} from "@/engine/features/upgrades/Upgrade";
-import CurrencyComponent from "@/components/Currency.vue";
+import CurrencyComponent from "@/components/Currency";
 import {App} from "@/App";
 
 export default {

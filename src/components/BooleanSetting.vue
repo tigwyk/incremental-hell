@@ -9,7 +9,7 @@
 
 <script>
 import {BooleanSetting} from "@/engine/features/settings/BooleanSetting";
-import {App} from "@/App.ts";
+import {App} from "@/App";
 
 export default {
   name: "BooleanSetting",
@@ -23,7 +23,7 @@ export default {
 
   methods: {
     change(event) {
-      App.game.settings.setSettingByName(this.setting.name, event.target.checked)
+      App.game.features.settings.setSetting(this.setting.id, event.target.checked);
     },
   }
 }

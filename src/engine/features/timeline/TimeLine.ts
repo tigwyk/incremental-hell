@@ -40,6 +40,15 @@ export class TimeLine extends Feature {
         if (App.game.features.wallet.getAmount(CurrencyType.Scrap) > 0) {
             this.canAccessScrap = true;
         }
+        if (App.game.features.wallet.getAmount(CurrencyType.Gasoline) > 0) {
+            this.canAccessGasoline = true;
+        }
+        if (App.game.features.wallet.getAmount(CurrencyType.Lightning) > 0) {
+            this.canAccessLightning = true;
+        }
+        if (App.game.features.wallet.getAmount(CurrencyType.Plutonium) > 0) {
+            this.canAccessPlutonium = true;
+        }
     }
 
     timeTravel() {
@@ -50,9 +59,16 @@ export class TimeLine extends Feature {
 
         App.game.features.wallet.loseAll();
         App.game.features.scrap.reset();
+        App.game.features.gasoline.reset();
+        App.game.features.lightning.reset();
+        App.game.features.plutonium.reset();
 
         // Reset prestige statistics
         (App.game.features.statistics.getStatistic(StatisticId.TotalScrapGainedThisPrestige) as NumberStatistic).value = 0;
+        (App.game.features.statistics.getStatistic(StatisticId.TotalOilGainedThisPrestige) as NumberStatistic).value = 0;
+        (App.game.features.statistics.getStatistic(StatisticId.TotalGasolineGainedThisPrestige) as NumberStatistic).value = 0;
+        (App.game.features.statistics.getStatistic(StatisticId.TotalLightningGainedThisPrestige) as NumberStatistic).value = 0;
+        (App.game.features.statistics.getStatistic(StatisticId.TotalPlutoniumGainedThisPrestige) as NumberStatistic).value = 0;
 
         this.canAccessScrap = false;
         this.canAccessGasoline = false;
@@ -83,6 +99,15 @@ export class TimeLine extends Feature {
         switch (this.state) {
             case TimeLineState.Scrap:
                 App.game.features.wallet.gainCurrency(new Currency(1, CurrencyType.Scrap));
+                break;
+            case TimeLineState.Gasoline:
+                App.game.features.wallet.gainCurrency(new Currency(1, CurrencyType.Gasoline));
+                break;
+            case TimeLineState.Lightning:
+                App.game.features.wallet.gainCurrency(new Currency(1, CurrencyType.Lightning));
+                break;
+            case TimeLineState.FluxCapacitor:
+                App.game.features.wallet.gainCurrency(new Currency(10, CurrencyType.Plutonium));
                 break;
         }
     }

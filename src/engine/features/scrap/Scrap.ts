@@ -76,8 +76,7 @@ export class Scrap extends Feature {
 
 
     canAccess(): boolean {
-        // return App.game.features.timeLine.canAccessScrap;
-        return true;
+        return App.game.features.timeLine.canAccessScrap;
     }
 
     parseSaveData(json: Record<string, unknown>): ScrapSaveData {

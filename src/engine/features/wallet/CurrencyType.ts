@@ -9,4 +9,8 @@ export enum CurrencyType {
     Salt = "Salt",
     Diamond = "Diamonds",
     Scrap = "Scrap",
+    Gasoline = "Gasoline",
+    Oil = "Oil",
+    Lightning = "Lightning",
+    Plutonium = "Plutonium",
 }

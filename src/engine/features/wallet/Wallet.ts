@@ -37,6 +37,11 @@ export class Wallet extends Feature {
         this._currencies[CurrencyType.Bronze] = 0;
         this._currencies[CurrencyType.Silver] = 0;
         this._currencies[CurrencyType.Gold] = 0;
+        this._currencies[CurrencyType.Gasoline] = 0;
+        this._currencies[CurrencyType.Oil] = 0;
+        this._currencies[CurrencyType.Scrap] = 0;
+        this._currencies[CurrencyType.Lightning] = 0;
+        this._currencies[CurrencyType.Plutonium] = 0;
     }
 
     public getAmount(type: CurrencyType): number {
@@ -52,8 +57,12 @@ export class Wallet extends Feature {
     public gainCurrency(currency: Currency): void {
         currency.multiply(this.getCurrencyMultiplier(currency.type));
 
-        if (!currency.isValid() || !this.supportsCurrencyType(currency.type)) {
+        if (!currency.isValid()) {
             console.warn(`Could not add currency ${currency.toString()}`);
+            return;
+        }
+        if (!this.supportsCurrencyType(currency.type)) {
+            console.warn(`Currency not supported ${currency.toString()}`);
             return;
         }
 
@@ -101,6 +110,10 @@ export class Wallet extends Feature {
         this._currencies[CurrencyType.Scrap] = 0;
         this._currencies[CurrencyType.Salt] = 0;
         this._currencies[CurrencyType.Diamond] = 0;
+        this._currencies[CurrencyType.Gasoline] = 0;
+        this._currencies[CurrencyType.Oil] = 0;
+        this._currencies[CurrencyType.Lightning] = 0;
+        this._currencies[CurrencyType.Plutonium] = 0;
     }
 
     public loseMultipleCurrencies(currencies: Currency[]) {
@@ -156,6 +169,11 @@ export class Wallet extends Feature {
     public save(): WalletSaveData {
         return {
             money: this._currencies[CurrencyType.Money],
+            scrap: this._currencies[CurrencyType.Scrap],
+            gasoline: this._currencies[CurrencyType.Gasoline],
+            oil: this._currencies[CurrencyType.Oil],
+            lightning: this._currencies[CurrencyType.Lightning],
+            plutonium: this._currencies[CurrencyType.Plutonium],
         }
     }
 
@@ -183,37 +201,107 @@ export class Wallet extends Feature {
         return this._currencies.Wood;
     }
 
+    public set wood(value: number) {
+        this._currencies.Wood = value;
+    }
+
     public get grain(): number {
         return this._currencies.Grain;
+    }
+
+    public set grain(value: number) {
+        this._currencies.Grain = value;
     }
 
     public get souls(): number {
         return this._currencies.Souls;
     }
 
+    public set souls(value: number) {
+        this._currencies.Souls = value;
+    }
+
     public get bronze(): number {
         return this._currencies.Bronze;
+    }
+
+    public set bronze(value: number) {
+        this._currencies.Bronze = value;
     }
 
     public get silver(): number {
         return this._currencies.Silver;
     }
 
+    public set silver(value: number) {
+        this._currencies.Silver = value;
+    }
+
     public get gold(): number {
         return this._currencies.Gold;
+    }
+
+    public set gold(value: number) {
+        this._currencies.Gold = value;
     }
 
     public get diamond(): number {
         return this._currencies.Diamonds;
     }
 
+    public set diamond(value: number) {
+        this._currencies.Diamonds = value;
+    }
+
     public get scrap(): number {
         return this._currencies.Scrap;
+    }
+
+    public set scrap(value: number) {
+        this._currencies.Scrap = value;
+    }
+
+    public get gasoline(): number {
+        return this._currencies.Gasoline;
+    }
+
+    public set gasoline(value: number) {
+        this._currencies.Gasoline = value;
+    }
+
+    public get oil(): number {
+        return this._currencies.Oil;
+    }
+
+    public set oil(value: number) {
+        this._currencies.Oil = value;
+    }
+
+    public get lightning(): number {
+        return this._currencies.Lightning;
+    }
+
+    public set lightning(value: number) {
+        this._currencies.Lightning = value;
+    }
+
+    public get plutonium(): number {
+        return this._currencies.Plutonium;
+    }
+
+    public set plutonium(value: number) {
+        this._currencies.Plutonium = value;
     }
 
     getDeveloperPanelFields(): AbstractField[] {
         return [
             new NumberField('money', 'Money'),
+            new NumberField('scrap', 'Scrap'),
+            new NumberField('gasoline', 'Gasoline'),
+            new NumberField('oasoline', 'Oil'),
+            new NumberField('souls', 'Souls'),
+            new NumberField('lightning', 'Lightning'),
+            new NumberField('plutonium', 'Plutonium'),
             new FunctionField(() => {
                 this.money = 10
             }, 'Set money to 10').setCssClass('btn-blue'),

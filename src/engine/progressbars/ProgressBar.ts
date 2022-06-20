@@ -32,7 +32,7 @@ export abstract class ProgressBar {
         }
         this.value = Math.min(this.goal, this.value + delta);
 
-        if (this.isCompleted()) {
+        if (this.isCompleted) {
             this.complete();
         }
     }
@@ -47,7 +47,7 @@ export abstract class ProgressBar {
         this.value = 0;
     }
 
-    public isCompleted() {
+    public get isCompleted() {
         return this.value >= this.goal;
     }
 

@@ -1,13 +1,15 @@
 import Vue from 'vue'
+// import { createApp } from 'vue'
 import VueApp from './VueApp.vue'
 import {App} from "./App";
+// import { h } from 'vue'
 
 import Notifications from "vt-notifications";
 
 import './VueFilters';
 
-// import "./index.css";
-import "./index.scss";
+import "./index.css";
+// import "./index.scss";
 
 Vue.config.productionTip = false
 
@@ -38,7 +40,10 @@ window.onload = function () {
     new Vue({
         render: h => h(VueApp),
     }).$mount('#app')
-
+    // const app = createApp({
+    //     render: () => h(VueApp),
+    // })
+    // app.mount('#app')
 
 };
 
